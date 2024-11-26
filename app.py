@@ -13,13 +13,13 @@ from langchain.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings  # Updated import
 from langchain.schema import Document
 # Package installation function
-def install_package(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-# List of required packages
-REQUIRED_PACKAGES = [
-    "streamlit", "langchain", "langchain_community", "langchain-huggingface",
-    "faiss-cpu", "openai", "tiktoken", "pandas"
-]
+# def install_package(package):
+#     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+# # List of required packages
+# REQUIRED_PACKAGES = [
+#     "streamlit", "langchain", "langchain_community", "langchain-huggingface",
+#     "faiss-cpu", "openai", "tiktoken", "pandas"
+# ]
 # Prompt template
 PROMPT_TEMPLATE = """
 You are an AI-powered course recommendation expert with extensive knowledge of educational programs across various disciplines. Your primary goal is to provide personalized, high-quality course suggestions tailored to each user's unique interests, goals, and background.
@@ -112,14 +112,14 @@ def main():
     load_dotenv()
     GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
     print(GEMINI_API_KEY)
-    # Check and install required packages
-    for package in REQUIRED_PACKAGES:
-        try:
-            __import__(package)
-        except ImportError:
-            print(f"{package} not found. Installing...")
-            install_package(package)
-    print("All required packages are installed.")
+    # # Check and install required packages
+    # for package in REQUIRED_PACKAGES:
+    #     try:
+    #         __import__(package)
+    #     except ImportError:
+    #         print(f"{package} not found. Installing...")
+    #         install_package(package)
+    # print("All required packages are installed.")
     
     # Streamlit app setup
     st.set_page_config(page_title="Course Recommendation Chatbot", page_icon=":book:")
